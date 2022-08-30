@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage("Git Checkout"){
       steps{
-            git credentialsId: 'github', url: 'https://github.com/mindwaveventures/Liverpool-CAMHS.git'
+            git credentialsId: 'github', url: 'https://github.com/Devopsveeru/sonar.git'
            }
           }
      stage("Apostrophe  Build"){
