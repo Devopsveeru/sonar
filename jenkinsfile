@@ -3,26 +3,18 @@ pipeline{
   stages{
     stage("Git Checkout"){
       steps{
-            git credentialsId: 'github', url: 'https://github.com/Devopsveeru/demo.git'
+            git credentialsId: 'github', url: 'https://github.com/mindwaveventures/Liverpool-CAMHS.git'
            }
           }
-     stage("Maven Build"){
+     stage("Apostrophe  Build"){
        steps{
-            sh "mvn clean package"
-            sh "mv target/*.war target/myweb.war"
+           stage('Build apostrophe') {
+           steps {
+               acrQuickTask(azureCredentialsId: "$env.Azuer_principal" , local:"client", imageNames: [[image: "$env.mindwaveregistry.azurecr.io/$env.liverpoolstaging-apostrophe:v$env.728" ], [image: "$env.mindwaveregistry.azurecr.io//$env.liverpoolstaging-apostrophe:latest"]], registryName: "$env.MindwaveRegistry", resourceGroupName: "$env.CommonResources", timeout: 28800)
+               }
              }
-            }
-     stage("deploy-dev"){
-       steps{
-          sshagent(['tomcat-dev1']) {
-          sh """
-          scp -o StrictHostKeyChecking=no target/myweb.war  
-          ubuntu@127.0.0.1:/opt/tomcat/webapps/
-          ssh ubuntu@127.0.0.1 /opt/tomcat/bin/shutdown.sh
-          ssh ubuntu@127.0.0.1 /opt/tomcat/bin/startup.sh
-           """
-            }
-          }
-        }
+            
+             }
+         }
       }
     }
