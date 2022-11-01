@@ -1,20 +1,20 @@
 pipeline{
   agent any
   stages{
-    stage("Git Checkout"){
-      steps{
-            git credentialsId: 'github', url: 'https://github.com/Devopsveeru/sonar.git'
-           }
-          }
-     stage("Apostrophe  Build"){
+     stage("Maven Build"){
        steps{
-           stage('Build apostrophe') {
-           steps {
-               acrQuickTask(azureCredentialsId: "$env.Azuer_principal" , local:"client", imageNames: [[image: "$env.mindwaveregistry.azurecr.io/$env.liverpoolstaging-apostrophe:v$env.728" ], [image: "$env.mindwaveregistry.azurecr.io//$env.liverpoolstaging-apostrophe:latest"]], registryName: "$env.MindwaveRegistry", resourceGroupName: "$env.CommonResources", timeout: 28800)
-               }
-             }
-            
-             }
-         }
-      }
-    }
+            sh "mvn clean package"
+        }
+     }
+     stage('sonar_test') {
+       environment {
+         scannerHome = 'sonarscanner'
+      }   
+       steps{
+           withSonarQubeEnv('sonarqube') { // If you have configured more than one global server connection, you can specify its name
+           sh "${scannerHome}/bin/sonar-scanner -X"  
+           }    
+        }
+     }
+    } 
+}            
