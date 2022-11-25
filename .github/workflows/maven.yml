@@ -13,7 +13,14 @@ jobs:
       - name: Hello World
         run: echo Hello, world!
       - name: Send mail
-          if: always()
+      
+         if : always()
+ Check failure on line 16 in .github/workflows/maven.yml
+
+GitHub Actions
+/ .github/workflows/maven.yml
+Invalid workflow file
+You have an error in your yaml syntax on line 16
           uses: dawidd6/action-send-mail@v2
         with:
     # mail server settings
@@ -29,4 +36,4 @@ jobs:
     # comma-separated string, send email to
           to: gurusuman306@gmail.com
     # from email name
-          from: veera  
+          from: veera
