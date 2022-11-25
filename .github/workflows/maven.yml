@@ -20,6 +20,7 @@ jobs:
           # mail server settings
           server_address: smtp.gmail.com
           server_port: 465
+          secure: true
           # user credentials
           username: gurusuman306@gmail.com
           password: gurua306
