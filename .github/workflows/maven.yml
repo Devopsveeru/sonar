@@ -17,22 +17,17 @@ jobs:
         if : always()
         uses: dawidd6/action-send-mail@v2
         with:
+          # mail server settings
           server_address: smtp.gmail.com
-          #Server port, default 25:
           server_port: 465
-          #Optional whether this connection use TLS (default is true if server_port is 465)
-          secure: true
-          #Optional (recommended): mail server username:
-          #username: ${{secrets.MAIL_USERNAME}}
-          username: fasireddy@gmail.com
-          #Optional (recommended) mail server password:
-          #password: ${{secrets.MAIL_PASSWORD}}
-          password: 9989898022         
-          #email subject
+          # user credentials
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          # email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-          #email body as text
+          # email body as text
           body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          #comma-separated string, send email to
+          # comma-separated string, send email to
           to: fasireddy@gmail.com
-          #from email name
+          # from email name
           from: veera
