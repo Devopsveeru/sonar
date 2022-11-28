@@ -27,12 +27,12 @@ jobs:
           username: fasireddy@gmail.com
           #Optional (recommended) mail server password:
           #password: ${{secrets.MAIL_PASSWORD}}
-          password: Fasi@1992         
+          password: 9989898022         
           #email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           #email body as text
           body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
           # comma-separated string, send email to
           to: fasireddy@gmail.com
-          # from email name
+          #from email name
           from: veera
