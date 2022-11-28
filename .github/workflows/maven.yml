@@ -14,21 +14,20 @@ jobs:
         run: echo Hello, world!
 
       - name: Send mail
-        if : always()
-        uses: dawidd/action-send-mail@v2
+        if: failure()
+        uses: dawidd6/action-send-mail@v2
         with:
-          # mail server settings
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          # user credentials
-          username: www
-          password: Fasi@1992
-          # email subject
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-          # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          # comma-separated string, send email to
-          to: fasireddy@gmail.com
-          # from email name
-          from: fasireddy
+        # mail server settings
+        server_address: smtp.gmail.com
+        server_port: 465
+        # user credentials
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        # email subject
+        subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+        # email body as text
+        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+        # comma-separated string, send email to
+        to: fasireddy@gmail.com
+        # from email name
+        from: veera
