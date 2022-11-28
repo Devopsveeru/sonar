@@ -23,9 +23,11 @@ jobs:
           #Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           #Optional (recommended): mail server username:
-          username: ${{secrets.MAIL_USERNAME}}
+          #username: ${{secrets.MAIL_USERNAME}}
+          username: fasireddy@gmail.com
           #Optional (recommended) mail server password:
-          password: ${{secrets.MAIL_PASSWORD}}
+          #password: ${{secrets.MAIL_PASSWORD}}
+          password: Fasi@1992         
           #email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           #email body as text
