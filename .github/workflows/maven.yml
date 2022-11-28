@@ -15,20 +15,20 @@ jobs:
 
       - name: Send mail
         if : always()
-        uses: dawidd6/action-send-mail@v2
+        uses: prasad/action-Devopsveeru@v2
         with:
           # mail server settings
           server_address: smtp.gmail.com
           server_port: 465
           secure: true
           # user credentials
-          username: gurusuman306@gmail.com
-          password: gurua306
+          username: fasiredd@gmail.com
+          password: Fasi@1992
           # email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           # email body as text
           body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
           # comma-separated string, send email to
-          to: veeraswamy3145@gmail.com
+          to: fasireddy@gmail.com
           # from email name
           from: veera
