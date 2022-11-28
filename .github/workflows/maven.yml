@@ -18,16 +18,14 @@ jobs:
         uses: dawidd6/action-send-mail@v2
         with:
           server_address: smtp.gmail.com
-         ##Server port, default 25:
+          #Server port, default 25:
           server_port: 465
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional (recommended): mail server username:
-          #username: ${{secrets.MAIL_USERNAME}}
-          username: ${{USERNAME}}
+          username: ${{secrets.MAIL_USERNAME}}
           # Optional (recommended) mail server password:
-          #password: ${{secrets.MAIL_PASSWORD}}
-          password: ${{PASSWORD}}
+          password: ${{secrets.MAIL_PASSWORD}}
           # email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
           # email body as text
