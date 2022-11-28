@@ -22,7 +22,7 @@ jobs:
           server_port: 465
           secure: true
           # user credentials
-          username: fasiredd@gmail.com
+          username: www
           password: Fasi@1992
           # email subject
           subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
@@ -31,4 +31,4 @@ jobs:
           # comma-separated string, send email to
           to: fasireddy@gmail.com
           # from email name
-          from: veera
+          from: fasireddy
