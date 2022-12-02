@@ -4,7 +4,7 @@ pipeline{
      stage("Maven Build"){
        steps{
             sh "mvn clean package"
-            sh "mv target/*.war target/mcs.war"
+            //sh "mv target/*.war target/mcs.war"
              }
             }
      //stage("deploy-dev"){
